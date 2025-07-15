@@ -14,4 +14,4 @@ A geospatial analysis and mapping project built using QGIS, PostGIS, and open da
 **Pawximity** helps locate hiking and walking trails that are:
 - Dog-friendly 🐶
 - Within close proximity to water sources 💧
-- Mapped with open GIS tools and public datasets
+- Mapped with open GIS tools and public datasets 🗺️
