@@ -18,8 +18,17 @@ WHERE t.geom IS NOT NULL
 
 -- DROP TABLE pawximity.stg_trails_by_county;
 
-CREATE TABLE pawximity.stg_trails_by_county (id SERIAL PRIMARY KEY,
-                                                       trail_id BIGINT, osm_id BIGINT, trail_type TEXT, trail_name TEXT, has_tunnel TEXT, county_id INTEGER, county_name TEXT, trail_geom GEOMETRY(MultiLineString, 26912));
+CREATE TABLE pawximity.stg_trails_by_county (
+	id SERIAL PRIMARY KEY,
+	trail_id BIGINT, 
+	osm_id BIGINT, 
+	trail_type TEXT, 
+	trail_name TEXT, 
+	has_tunnel TEXT, 
+	county_id INTEGER, 
+	county_name TEXT, 
+	trail_geom GEOMETRY(MultiLineString, 26912)
+);
 
 
 CREATE INDEX stg_trails_by_county_trail_geom_geom_idx ON pawximity.stg_trails_by_county USING gist (trail_geom);

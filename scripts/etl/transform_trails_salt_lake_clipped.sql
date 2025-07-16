@@ -9,8 +9,17 @@ WHERE s.county_name = 'SALT LAKE';
 
 -- DROP TABLE pawximity.trails_salt_lake_clipped;
 
-CREATE TABLE pawximity.trails_salt_lake_clipped (id SERIAL PRIMARY KEY,
-                                                           trail_id BIGINT, osm_id BIGINT, trail_type TEXT, trail_name TEXT, has_tunnel TEXT, county_id INTEGER, county_name TEXT, clipped_trail_geom GEOMETRY(MultiLineString, 26912));
+CREATE TABLE pawximity.trails_salt_lake_clipped (
+	id SERIAL PRIMARY KEY,
+	trail_id BIGINT, 
+	osm_id BIGINT, 
+	trail_type TEXT, 
+	trail_name TEXT, 
+	has_tunnel TEXT, 
+	county_id INTEGER, 
+	county_name TEXT, 
+	clipped_trail_geom GEOMETRY(MultiLineString, 26912)
+);
 
 
 CREATE INDEX trails_salt_lake_clipped_geom_geom_idx ON pawximity.trails_salt_lake_clipped USING gist (clipped_trail_geom);
