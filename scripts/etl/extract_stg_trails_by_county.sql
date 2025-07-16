@@ -10,7 +10,7 @@ SELECT t.id AS trail_id,
 FROM pawximity.utah_county_boundary_ugrc c
 LEFT JOIN pawximity.stg_trails t ON ST_Intersects(c.geom, t.geom)
 WHERE t.geom IS NOT NULL
-  AND c.geom IS NOT NULL;
+AND c.geom IS NOT NULL;
 
 -- pawximity.stg_trails_by_county definition
 
@@ -47,4 +47,4 @@ SELECT t.id,
 FROM pawximity.utah_county_boundary_ugrc c
 LEFT JOIN pawximity.stg_trails t ON ST_Intersects(c.geom, t.geom)
 WHERE t.geom IS NOT NULL
-  AND c.geom IS NOT NULL;
+AND c.geom IS NOT NULL;
