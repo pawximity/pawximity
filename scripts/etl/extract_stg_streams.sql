@@ -1,4 +1,4 @@
--- pawximity.stg_streams
+-- pawximity.stg_streams definition
 
 -- Drop table
 
