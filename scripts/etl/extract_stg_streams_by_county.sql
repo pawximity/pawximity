@@ -15,21 +15,8 @@ WHERE
 
 -- pawximity.stg_streams_by_county definition
 -- Drop table
--- DROP TABLE pawximity.stg_streams_by_county;
-CREATE TABLE pawximity.stg_streams_by_county (
-    id serial PRIMARY KEY,
-    stream_id integer,
-    stream_type text,
-    stream_length_km double precision,
-    county_id integer,
-    county_name text,
-    stream_geom GEOMETRY(MultiLineString, 26912)
-);
-
-CREATE INDEX stg_streams_by_county_stream_geom_geom_idx ON pawximity.stg_streams_by_county USING gist (stream_geom);
-
--- TRUNCATE TABLE pawximity.stg_streams_by_county;
-INSERT INTO pawximity.stg_streams_by_county (stream_id, stream_type, stream_length_km, county_id, county_name, stream_geom)
+-- DROP MATERIALIZED VIEW pawximity.stg_streams_by_county;
+CREATE MATERIALIZED VIEW pawximity.stg_streams_by_county AS
 SELECT
     s.stream_id AS stream_id,
     s.stream_type AS stream_type,
@@ -43,4 +30,6 @@ FROM
 WHERE
     s.stream_geom IS NOT NULL
     AND c.geom IS NOT NULL;
+
+CREATE INDEX stg_streams_by_county_stream_geom_geom_idx ON pawximity.stg_streams_by_county USING gist (stream_geom);
 

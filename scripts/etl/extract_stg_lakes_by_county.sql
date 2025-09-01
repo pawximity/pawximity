@@ -15,21 +15,8 @@ WHERE
 
 -- pawximity.stg_lakes_by_county definition
 -- Drop table
--- DROP TABLE pawximity.stg_lakes_by_county;
-CREATE TABLE pawximity.stg_lakes_by_county (
-    id serial PRIMARY KEY,
-    lake_id integer,
-    lake_type text,
-    lake_name text,
-    county_id integer,
-    county_name text,
-    lake_geom GEOMETRY(MultiPolygon, 26912)
-);
-
-CREATE INDEX stg_lakes_by_county_lake_geom_geom_idx ON pawximity.stg_lakes_by_county USING gist (lake_geom);
-
--- TRUNCATE TABLE pawximity.stg_lakes_by_county;
-INSERT INTO pawximity.stg_lakes_by_county (lake_id, lake_type, lake_name, county_id, county_name, lake_geom)
+-- DROP MATERIALIZED VIEW pawximity.stg_lakes_by_county;
+CREATE MATERIALIZED VIEW pawximity.stg_lakes_by_county AS
 SELECT
     l.lake_id AS lake_id,
     l.lake_type AS lake_type,
@@ -43,4 +30,6 @@ FROM
 WHERE
     l.lake_geom IS NOT NULL
     AND c.geom IS NOT NULL;
+
+CREATE INDEX stg_lakes_by_county_lake_geom_geom_idx ON pawximity.stg_lakes_by_county USING gist (lake_geom);
 

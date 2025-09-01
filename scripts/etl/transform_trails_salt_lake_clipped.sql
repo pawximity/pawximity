@@ -8,23 +8,8 @@ WHERE
 
 -- pawximity.trails_salt_lake_clipped definition
 -- Drop table
--- DROP TABLE pawximity.trails_salt_lake_clipped;
-CREATE TABLE pawximity.trails_salt_lake_clipped (
-    id serial PRIMARY KEY,
-    trail_id bigint,
-    osm_id bigint,
-    trail_type text,
-    trail_name text,
-    has_tunnel text,
-    county_id integer,
-    county_name text,
-    clipped_trail_geom GEOMETRY(MultiLineString, 26912)
-);
-
-CREATE INDEX trails_salt_lake_clipped_geom_geom_idx ON pawximity.trails_salt_lake_clipped USING gist (clipped_trail_geom);
-
--- TRUNCATE TABLE pawximity.trails_salt_lake_clipped;
-INSERT INTO pawximity.trails_salt_lake_clipped (trail_id, osm_id, trail_type, trail_name, has_tunnel, county_id, county_name, clipped_trail_geom)
+-- DROP MATERIALIZED VIEW pawximity.trails_salt_lake_clipped;
+CREATE MATERIALIZED VIEW pawximity.trails_salt_lake_clipped AS
 SELECT
     s.trail_id,
     s.osm_id,
@@ -39,4 +24,6 @@ FROM
     JOIN pawximity.utah_county_boundary_ugrc c ON s.county_id = c.ogc_fid
 WHERE
     s.county_name = 'SALT LAKE';
+
+CREATE INDEX trails_salt_lake_clipped_geom_geom_idx ON pawximity.trails_salt_lake_clipped USING gist (clipped_trail_geom);
 
