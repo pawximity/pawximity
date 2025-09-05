@@ -24,5 +24,5 @@ WHERE
 ALTER TABLE pawximity.stg_trails
     ADD PRIMARY KEY (id);
 
-CREATE INDEX stg_trails_geom_geom_idx ON pawximity.stg_trails USING gist (geom);
+CREATE INDEX stg_trails_geom_gix ON pawximity.stg_trails USING gist (geom);
 

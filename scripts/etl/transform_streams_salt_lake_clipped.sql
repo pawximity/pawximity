@@ -24,5 +24,5 @@ WHERE
     s.county_name = 'SALT LAKE'
     AND NOT ST_IsEmpty (ST_Intersection (s.stream_geom, c.geom));
 
-CREATE INDEX streams_salt_lake_clipped_geom_geom_idx ON pawximity.streams_salt_lake_clipped USING gist (clipped_stream_geom);
+CREATE INDEX streams_salt_lake_clipped_geom_gix ON pawximity.streams_salt_lake_clipped USING gist (clipped_stream_geom);
 

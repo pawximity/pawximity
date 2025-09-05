@@ -9,7 +9,7 @@ CREATE TABLE pawximity.stg_lakes (
     lake_geom GEOMETRY(MultiPolygon, 26912)
 );
 
-CREATE INDEX stg_lakes_geom_geom_idx ON pawximity.stg_lakes USING gist (lake_geom);
+CREATE INDEX stg_lakes_geom_gix ON pawximity.stg_lakes USING gist (lake_geom);
 
 -- TRUNCATE TABLE pawximity.stg_lakes;
 INSERT INTO pawximity.stg_lakes (lake_id, lake_type, lake_name, lake_geom)

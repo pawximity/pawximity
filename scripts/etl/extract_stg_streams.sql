@@ -9,7 +9,7 @@ CREATE TABLE pawximity.stg_streams (
     stream_geom GEOMETRY(MultiLineString, 26912)
 );
 
-CREATE INDEX stg_streams_geom_geom_idx ON pawximity.stg_streams USING gist (stream_geom);
+CREATE INDEX stg_streams_geom_gix ON pawximity.stg_streams USING gist (stream_geom);
 
 -- TRUNCATE TABLE pawximity.stg_streams;
 INSERT INTO pawximity.stg_streams (stream_id, stream_type, length_km, stream_geom)

@@ -35,5 +35,5 @@ WHERE
     t.geom IS NOT NULL
     AND c.geom IS NOT NULL;
 
-CREATE INDEX stg_trails_by_county_trail_geom_geom_idx ON pawximity.stg_trails_by_county USING gist (trail_geom);
+CREATE INDEX stg_trails_by_county_trail_geom_gix ON pawximity.stg_trails_by_county USING gist (trail_geom);
 

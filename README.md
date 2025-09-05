@@ -1,5 +1,5 @@
 ## 👤 About Me
-I'm a Software Engineer with over a decade of experience building backend systems and data pipelines. Recently, I’ve been exploring ways to reconnect with the natural world by diving into geography, mapping, and environmental data. This account documents that journey and is dedicated entirely to spatial analysis, open geodata, and hands-on GIS experimentation.
+I'm a Software Engineer with over a decade of experience building backend systems and data pipelines. Recently, I’ve been exploring ways to reconnect with the natural world by diving into geography, mapping, and environmental data. This account documents that journey and is dedicated to spatial analysis, open geodata, and GIS experimentation.
 
 ### 🐺 In Memory of Angus
 This project and anything else I create in this space, should I continue - is dedicated to my dog Angus. I’ll carry you with me as I learn, grow, and explore the world through maps.

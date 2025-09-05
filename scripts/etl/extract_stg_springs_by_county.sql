@@ -31,5 +31,5 @@ WHERE
     s.spring_geom IS NOT NULL
     AND c.geom IS NOT NULL;
 
-CREATE INDEX stg_springs_by_county_spring_geom_geom_idx ON pawximity.stg_springs_by_county USING gist (spring_geom);
+CREATE INDEX stg_springs_by_county_spring_geom_gix ON pawximity.stg_springs_by_county USING gist (spring_geom);
 

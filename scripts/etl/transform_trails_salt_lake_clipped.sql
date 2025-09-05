@@ -26,5 +26,5 @@ WHERE
     t.county_name = 'SALT LAKE'
     AND NOT ST_IsEmpty (ST_Intersection (t.trail_geom, c.geom));
 
-CREATE INDEX trails_salt_lake_clipped_geom_geom_idx ON pawximity.trails_salt_lake_clipped USING gist (clipped_trail_geom);
+CREATE INDEX trails_salt_lake_clipped_geom_gix ON pawximity.trails_salt_lake_clipped USING gist (clipped_trail_geom);
 

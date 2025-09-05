@@ -31,5 +31,5 @@ WHERE
     l.lake_geom IS NOT NULL
     AND c.geom IS NOT NULL;
 
-CREATE INDEX stg_lakes_by_county_lake_geom_geom_idx ON pawximity.stg_lakes_by_county USING gist (lake_geom);
+CREATE INDEX stg_lakes_by_county_lake_geom_gix ON pawximity.stg_lakes_by_county USING gist (lake_geom);
 

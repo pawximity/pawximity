@@ -31,5 +31,5 @@ WHERE
     s.stream_geom IS NOT NULL
     AND c.geom IS NOT NULL;
 
-CREATE INDEX stg_streams_by_county_stream_geom_geom_idx ON pawximity.stg_streams_by_county USING gist (stream_geom);
+CREATE INDEX stg_streams_by_county_stream_geom_gix ON pawximity.stg_streams_by_county USING gist (stream_geom);
 

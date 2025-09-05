@@ -9,7 +9,7 @@ CREATE TABLE pawximity.stg_springs (
     spring_geom GEOMETRY(MultiPoint, 26912)
 );
 
-CREATE INDEX stg_springs_geom_geom_idx ON pawximity.stg_springs USING gist (spring_geom);
+CREATE INDEX stg_springs_geom_gix ON pawximity.stg_springs USING gist (spring_geom);
 
 -- TRUNCATE TABLE pawximity.stg_springs;
 INSERT INTO pawximity.stg_springs (spring_id, spring_type, spring_name, spring_geom)
