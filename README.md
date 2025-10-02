@@ -15,3 +15,6 @@ A geospatial analysis and mapping project built using QGIS, PostGIS, and open da
 - Dog-friendly 🐶
 - Within close proximity to water sources 💧
 - Mapped with open GIS tools and public datasets 🗺️
+
+### Work in Progress
+<img src="images/pawxmity.png" alt="pawxmity" width="600"/>
