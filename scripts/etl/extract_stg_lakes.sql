@@ -14,12 +14,11 @@ CREATE INDEX stg_lakes_geom_gix ON pawximity.stg_lakes USING gist (lake_geom);
 -- TRUNCATE TABLE pawximity.stg_lakes;
 INSERT INTO pawximity.stg_lakes (lake_id, lake_type, lake_name, lake_geom)
 SELECT
-    ogc_fid AS id,
+    ogc_fid AS lake_id,
     ftype_text AS lake_type,
     gnis_name AS lake_name,
     ST_Multi (geom)::geometry(MultiPolygon, 26912)
 FROM
-    pawximity.utah_lakes_hydrography_ugrc u
+    geobase.utah_lakes_hydrography_ugrc u
 WHERE
     inutah = 1;
-

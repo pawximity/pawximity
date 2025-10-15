@@ -14,12 +14,11 @@ CREATE INDEX stg_streams_geom_gix ON pawximity.stg_streams USING gist (stream_ge
 -- TRUNCATE TABLE pawximity.stg_streams;
 INSERT INTO pawximity.stg_streams (stream_id, stream_type, length_km, stream_geom)
 SELECT
-    ogc_fid,
-    ftype_text,
-    lengthkm,
+    ogc_fid AS stream_id,
+    ftype_text AS stream_type,
+    lengthkm AS length_km,
     ST_Multi (geom)::geometry(MultiLineString, 26912)
 FROM
-    pawximity.utah_streams_hydrography_ugrc
+    geobase.utah_streams_hydrography_ugrc
 WHERE
     inutah = 1;
-

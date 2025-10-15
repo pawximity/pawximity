@@ -14,12 +14,11 @@ CREATE INDEX stg_springs_geom_gix ON pawximity.stg_springs USING gist (spring_ge
 -- TRUNCATE TABLE pawximity.stg_springs;
 INSERT INTO pawximity.stg_springs (spring_id, spring_type, spring_name, spring_geom)
 SELECT
-    ogc_fid AS id,
+    ogc_fid AS spring_id,
     ftype_text AS spring_type,
     gnis_name AS spring_name,
     ST_Multi (geom)::geometry(MultiPoint, 26912)
 FROM
-    pawximity.utah_springs_hydrography_ugrc u
+    geobase.utah_springs_hydrography_ugrc u
 WHERE
     inutah = 1;
-
